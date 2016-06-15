@@ -1,0 +1,42 @@
+修饰符 格式说明 意义 
+M %md 以宽度m输出整型数,不足m时,左补空格 
+0m %0md 以宽度m输出整型数,不足m时,左补零 
+m,n %m.nf 以宽度m输出实型小数,小数位为n位 
+
+list 有序列表 可变 [] .append() insert() pop(i)
+tuple 有序列表 不可变()
+dict key-value key不可变{}
+set和dict类似，也是一组key的集合，但不存储value
+和list比较，dict有以下几个特点：
+	查找和插入的速度极快，不会随着key的增加而增加；
+	需要占用大量的内存，内存浪费多。
+而list相反：
+	查找和插入的时间随着元素的增加而增加；
+	占用空间小，浪费内存很少。
+所以，dict是用空间来换取时间的一种方法。
+
+尾递归是指，在函数返回的时候，调用自身本身，并且，return语句不能包含表达式。这样，编译器或者解释器就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一个栈帧，不会出现栈溢出的情况。
+def fact(n):
+    return fact_iter(n, 1)
+
+def fact_iter(num, product):
+    if num == 1:
+        return product
+    return fact_iter(num - 1, num * product)
+
+函数本身也可以赋值给变量:变量可以指向函数。
+*args是可变参数，args接收的是一个tuple；
+**kw是关键字参数，kw接收的是一个dict。
+在定义class的时候，定义一个特殊的__slots__变量，来限制该class实例能添加的属性.
+class Student(object):
+    __slots__ = ('name', 'age') # 用tuple定义允许绑定的属性名称
+
+__str__()返回用户看到的字符串，而__repr__()返回程序开发者看到的字符串，也就是说，__repr__()是为调试服务的。
+__repr__ = __str__
+
+
+list[::-1]是将列表反过来.
+关键字lambda表示匿名函数，冒号前面的x表示函数参数。
+
+“装饰器”（Decorator）接受一个函数作为参数，并返回一个函数.
+
